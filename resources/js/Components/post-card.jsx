@@ -9,10 +9,10 @@ const StyledPostCard = styled.div`
 `;
 
 
-function PostCard ({ titleText, subtitleText }) {
+function PostCard ({ titleText, subtitleText, imageSrc }) {
   return (
       <StyledPostCard>
-        <CardPostImage></CardPostImage>
+        <CardPostImage $imageSrc={imageSrc}></CardPostImage>
         <PostCardInfo
         titleText={titleText}
         subtitleText={subtitleText}></PostCardInfo>

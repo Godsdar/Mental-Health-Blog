@@ -1,39 +1,45 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
 import DeleteUserForm from './Partials/DeleteUserForm';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
+import styled from 'styled-components';
+import { colorsPallete } from '@/global-styles';
+import { Container, Row, Col } from 'react-bootstrap';
+
+const SectionCard = styled.div`
+    background-color: ${colorsPallete.purple};
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    margin-bottom: 20px;
+`;
 
 export default function Edit({ mustVerifyEmail, status }) {
     return (
         <AuthenticatedLayout
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                    Profile
-                </h2>
-            }
+            title="Profile settings"
+            subtitle="Manage your account information, password, and sessions."
         >
-            <Head title="Profile" />
+            <Container fluid style={{ padding: 0 }}>
+                <Row>
+                    <Col xxl={8}>
+                        <SectionCard>
+                            <UpdateProfileInformationForm
+                                mustVerifyEmail={mustVerifyEmail}
+                                status={status}
+                            />
+                        </SectionCard>
 
-            <div className="py-12">
-                <div className="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
-                        <UpdateProfileInformationForm
-                            mustVerifyEmail={mustVerifyEmail}
-                            status={status}
-                            className="max-w-xl"
-                        />
-                    </div>
+                        <SectionCard>
+                            <UpdatePasswordForm />
+                        </SectionCard>
 
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
-                        <UpdatePasswordForm className="max-w-xl" />
-                    </div>
-
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
-                        <DeleteUserForm className="max-w-xl" />
-                    </div>
-                </div>
-            </div>
+                        <SectionCard>
+                            <DeleteUserForm />
+                        </SectionCard>
+                    </Col>
+                </Row>
+            </Container>
         </AuthenticatedLayout>
     );
 }

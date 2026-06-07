@@ -1,12 +1,21 @@
+import styled from "styled-components";
+import { colorsPallete } from "@/global-styles";
+
+const StyledCheckbox = styled.input`
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid ${colorsPallete.border};
+  accent-color: ${colorsPallete.lighterPurple};
+  cursor: pointer;
+`;
+
 export default function Checkbox({ className = '', ...props }) {
     return (
-        <input
+        <StyledCheckbox
             {...props}
             type="checkbox"
-            className={
-                'rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500 ' +
-                className
-            }
+            className={className}
         />
     );
 }

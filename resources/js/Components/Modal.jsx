@@ -4,6 +4,14 @@ import {
     Transition,
     TransitionChild,
 } from '@headlessui/react';
+import styled from 'styled-components';
+import { colorsPallete } from '@/global-styles';
+
+const StyledDialogPanel = styled(DialogPanel)`
+    background-color: ${colorsPallete.purple};
+    color: ${colorsPallete.white};
+    border: 1px solid ${colorsPallete.border};
+`;
 
 export default function Modal({
     children,
@@ -42,7 +50,7 @@ export default function Modal({
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className="absolute inset-0 bg-gray-500/75" />
+                    <div className="absolute inset-0 bg-gray-900/80" />
                 </TransitionChild>
 
                 <TransitionChild
@@ -53,11 +61,11 @@ export default function Modal({
                     leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                     leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
-                    <DialogPanel
-                        className={`mb-6 transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full ${maxWidthClass}`}
+                    <StyledDialogPanel
+                        className={`mb-6 transform overflow-hidden rounded-lg shadow-xl transition-all sm:mx-auto sm:w-full ${maxWidthClass}`}
                     >
                         {children}
-                    </DialogPanel>
+                    </StyledDialogPanel>
                 </TransitionChild>
             </Dialog>
         </Transition>

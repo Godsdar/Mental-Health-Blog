@@ -1,10 +1,19 @@
+import styled from "styled-components";
+import { colorsPallete } from "@/global-styles";
+
+const StyledError = styled.p`
+  margin-top: 6px;
+  color: ${colorsPallete.error};
+  font-size: 0.85rem;
+`;
+
 export default function InputError({ message, className = '', ...props }) {
     return message ? (
-        <p
+        <StyledError
             {...props}
-            className={'text-sm text-red-600 ' + className}
+            className={className}
         >
             {message}
-        </p>
+        </StyledError>
     ) : null;
 }

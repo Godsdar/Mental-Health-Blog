@@ -4,6 +4,71 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Transition } from '@headlessui/react';
 import { Link, useForm, usePage } from '@inertiajs/react';
+import styled from 'styled-components';
+import { colorsPallete } from '@/global-styles';
+
+const Section = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+`;
+
+const Header = styled.header`
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+`;
+
+const SectionTitle = styled.h2`
+    margin: 0;
+    color: ${colorsPallete.white};
+    font-size: 1.15rem;
+    font-weight: 600;
+`;
+
+const SectionDescription = styled.p`
+    margin: 0;
+    color: ${colorsPallete.font};
+    font-size: 0.9rem;
+    line-height: 1.5;
+`;
+
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+`;
+
+const Row = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+`;
+
+const SavedText = styled.p`
+    color: ${colorsPallete.font};
+    font-size: 0.85rem;
+`;
+
+const InlineLink = styled(Link)`
+    color: ${colorsPallete.lighterPurple};
+    font-size: 0.85rem;
+    text-decoration: underline;
+    &:hover { opacity: 0.85; }
+`;
+
+const VerificationText = styled.p`
+    margin: 4px 0 0 0;
+    color: ${colorsPallete.font};
+    font-size: 0.9rem;
+`;
+
+const SuccessText = styled.div`
+    margin-top: 4px;
+    color: #a5d6a7;
+    font-size: 0.9rem;
+`;
 
 export default function UpdateProfileInformation({
     mustVerifyEmail,
@@ -20,79 +85,70 @@ export default function UpdateProfileInformation({
 
     const submit = (e) => {
         e.preventDefault();
-
         patch(route('profile.update'));
     };
 
     return (
-        <section className={className}>
-            <header>
-                <h2 className="text-lg font-medium text-gray-900">
-                    Profile Information
-                </h2>
-
-                <p className="mt-1 text-sm text-gray-600">
+        <Section className={className}>
+            <Header>
+                <SectionTitle>Profile Information</SectionTitle>
+                <SectionDescription>
                     Update your account's profile information and email address.
-                </p>
-            </header>
+                </SectionDescription>
+            </Header>
 
-            <form onSubmit={submit} className="mt-6 space-y-6">
+            <Form onSubmit={submit}>
                 <div>
                     <InputLabel htmlFor="name" value="Name" />
-
                     <TextInput
                         id="name"
-                        className="mt-1 block w-full"
+                        className="block w-full"
                         value={data.name}
                         onChange={(e) => setData('name', e.target.value)}
                         required
                         isFocused
                         autoComplete="name"
                     />
-
-                    <InputError className="mt-2" message={errors.name} />
+                    <InputError message={errors.name} />
                 </div>
 
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
-
                     <TextInput
                         id="email"
                         type="email"
-                        className="mt-1 block w-full"
+                        className="block w-full"
                         value={data.email}
                         onChange={(e) => setData('email', e.target.value)}
                         required
                         autoComplete="username"
                     />
-
-                    <InputError className="mt-2" message={errors.email} />
+                    <InputError message={errors.email} />
                 </div>
 
                 {mustVerifyEmail && user.email_verified_at === null && (
                     <div>
-                        <p className="mt-2 text-sm text-gray-800">
-                            Your email address is unverified.
-                            <Link
+                        <VerificationText>
+                            Your email address is unverified.{' '}
+                            <InlineLink
                                 href={route('verification.send')}
                                 method="post"
                                 as="button"
-                                className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                             >
                                 Click here to re-send the verification email.
-                            </Link>
-                        </p>
+                            </InlineLink>
+                        </VerificationText>
 
                         {status === 'verification-link-sent' && (
-                            <div className="mt-2 text-sm font-medium text-green-600">
+                            <SuccessText>
                                 A new verification link has been sent to your
                                 email address.
-                            </div>
+                            </SuccessText>
                         )}
                     </div>
                 )}
 
-                <div className="flex items-center gap-4">
+                <Row>
                     <PrimaryButton disabled={processing}>Save</PrimaryButton>
 
                     <Transition
@@ -102,12 +158,10 @@ export default function UpdateProfileInformation({
                         leave="transition ease-in-out"
                         leaveTo="opacity-0"
                     >
-                        <p className="text-sm text-gray-600">
-                            Saved.
-                        </p>
+                        <SavedText>Saved.</SavedText>
                     </Transition>
-                </div>
-            </form>
-        </section>
+                </Row>
+            </Form>
+        </Section>
     );
 }

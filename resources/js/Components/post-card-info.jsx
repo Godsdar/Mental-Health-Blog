@@ -9,6 +9,10 @@ export const CardPostImage = styled.div`
   width: 100%;
   height: 100px;
   background-color: #7471c9;
+  background-image: url(${props => props.$imageSrc});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 10px 10px 0 0;
 `;
 

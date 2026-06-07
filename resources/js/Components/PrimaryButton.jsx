@@ -1,3 +1,46 @@
+import styled, { css } from "styled-components";
+import { colorsPallete } from "@/global-styles";
+
+const baseButton = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.05s ease, opacity 0.15s ease;
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;
+
+const StyledPrimaryButton = styled.button`
+  ${baseButton}
+  background-color: ${colorsPallete.lighterPurple};
+  color: ${colorsPallete.white};
+
+  &:hover:not(:disabled) {
+    background-color: ${colorsPallete.purple};
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(116, 113, 201, 0.4);
+  }
+`;
+
 export default function PrimaryButton({
     className = '',
     disabled,
@@ -5,16 +48,12 @@ export default function PrimaryButton({
     ...props
 }) {
     return (
-        <button
+        <StyledPrimaryButton
             {...props}
-            className={
-                `inline-flex items-center rounded-md border border-transparent bg-gray-800 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition duration-150 ease-in-out hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:bg-gray-900 ${
-                    disabled && 'opacity-25'
-                } ` + className
-            }
+            className={className}
             disabled={disabled}
         >
             {children}
-        </button>
+        </StyledPrimaryButton>
     );
 }

@@ -5,7 +5,12 @@ import Bgim from "../images/background.jpg";
 export const colorsPallete = {
   purple: "#343080",
   lightPurple: "#42468b",
+  lighterPurple: "#7471c9",
+  white: "#ffffff",
   font: "rgba(255 255 255 / 0.7)",
+  fontStrong: "rgba(255 255 255 / 0.95)",
+  border: "rgba(255, 255, 255, 0.12)",
+  error: "#ff8a8a",
 };
 
 export const Normalized = Normalize;

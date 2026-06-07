@@ -1,3 +1,46 @@
+import styled, { css } from "styled-components";
+import { colorsPallete } from "@/global-styles";
+
+const baseButton = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid ${colorsPallete.border};
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.05s ease, opacity 0.15s ease;
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;
+
+const StyledSecondaryButton = styled.button`
+  ${baseButton}
+  background-color: transparent;
+  color: ${colorsPallete.fontStrong};
+
+  &:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(116, 113, 201, 0.3);
+  }
+`;
+
 export default function SecondaryButton({
     type = 'button',
     className = '',
@@ -6,17 +49,13 @@ export default function SecondaryButton({
     ...props
 }) {
     return (
-        <button
+        <StyledSecondaryButton
             {...props}
             type={type}
-            className={
-                `inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-widest text-gray-700 shadow-sm transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-25 ${
-                    disabled && 'opacity-25'
-                } ` + className
-            }
+            className={className}
             disabled={disabled}
         >
             {children}
-        </button>
+        </StyledSecondaryButton>
     );
 }

@@ -1,7 +1,12 @@
 import styled from "styled-components";
+import { colorsPallete } from "@/global-styles";
 
 const StyledLabel = styled.label`
-    margin-right: 12px;
+  display: block;
+  margin-bottom: 4px;
+  color: ${colorsPallete.fontStrong};
+  font-size: 0.9rem;
+  font-weight: 500;
 `;
 
 export default function InputLabel({
@@ -13,10 +18,7 @@ export default function InputLabel({
     return (
         <StyledLabel
             {...props}
-            className={
-                `block text-sm font-medium text-gray-700 ` +
-                className
-            }
+            className={className}
         >
             {value ? value : children}
         </StyledLabel>

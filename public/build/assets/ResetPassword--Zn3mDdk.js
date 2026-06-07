@@ -1,0 +1,9 @@
+import{u as f,j as s,H as x}from"./app-DyZufzeA.js";import{T as t,I as i}from"./TextInput-B2NrP0n1.js";import{I as n}from"./InputLabel-CsZeEefb.js";import{P as j}from"./PrimaryButton-Ju1kdgTi.js";import{G as h}from"./GuestLayout-dVJV_qG3.js";import{d as l}from"./global-styles-j6qhmdoU.js";import"./Container-D6icfpOl.js";const v=l.form`
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+`,g=l.div`
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+`;function I({token:d,email:m}){const{data:a,setData:e,post:p,processing:u,errors:r,reset:w}=f({token:d,email:m,password:"",password_confirmation:""}),c=o=>{o.preventDefault(),p(route("password.store"),{onFinish:()=>w("password","password_confirmation")})};return s.jsxs(h,{title:"Reset your password",subtitle:"Choose a new password to regain access to your account.",children:[s.jsx(x,{title:"Reset Password"}),s.jsxs(v,{onSubmit:c,children:[s.jsxs("div",{children:[s.jsx(n,{htmlFor:"email",value:"Email"}),s.jsx(t,{id:"email",type:"email",name:"email",value:a.email,className:"block w-full",autoComplete:"username",onChange:o=>e("email",o.target.value)}),s.jsx(i,{message:r.email})]}),s.jsxs("div",{children:[s.jsx(n,{htmlFor:"password",value:"New Password"}),s.jsx(t,{id:"password",type:"password",name:"password",value:a.password,className:"block w-full",autoComplete:"new-password",isFocused:!0,onChange:o=>e("password",o.target.value)}),s.jsx(i,{message:r.password})]}),s.jsxs("div",{children:[s.jsx(n,{htmlFor:"password_confirmation",value:"Confirm Password"}),s.jsx(t,{type:"password",id:"password_confirmation",name:"password_confirmation",value:a.password_confirmation,className:"block w-full",autoComplete:"new-password",onChange:o=>e("password_confirmation",o.target.value)}),s.jsx(i,{message:r.password_confirmation})]}),s.jsx(g,{children:s.jsx(j,{disabled:u,children:"Reset Password"})})]})]})}export{I as default};

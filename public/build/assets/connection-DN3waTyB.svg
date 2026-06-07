@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="cnBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#343080"/>
+      <stop offset="100%" stop-color="#42468b"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="100" fill="url(#cnBg)"/>
+  <g fill="#ffffff">
+    <circle cx="100" cy="50" r="14" opacity="0.9"/>
+    <circle cx="200" cy="50" r="18" opacity="1"/>
+    <circle cx="300" cy="50" r="14" opacity="0.9"/>
+  </g>
+  <g stroke="#ffffff" stroke-width="1.2" fill="none" opacity="0.7">
+    <line x1="114" y1="50" x2="182" y2="50"/>
+    <line x1="218" y1="50" x2="286" y2="50"/>
+  </g>
+  <g fill="#7471c9" opacity="0.7">
+    <circle cx="100" cy="50" r="6"/>
+    <circle cx="200" cy="50" r="8"/>
+    <circle cx="300" cy="50" r="6"/>
+  </g>
+  <g fill="#ffffff" opacity="0.4">
+    <circle cx="60" cy="30" r="1"/>
+    <circle cx="60" cy="70" r="1.2"/>
+    <circle cx="340" cy="30" r="1.1"/>
+    <circle cx="340" cy="70" r="0.9"/>
+    <circle cx="160" cy="22" r="0.8"/>
+    <circle cx="240" cy="78" r="0.8"/>
+  </g>
+</svg>

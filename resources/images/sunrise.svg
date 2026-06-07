@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="srSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#343080"/>
+      <stop offset="60%" stop-color="#42468b"/>
+      <stop offset="100%" stop-color="#7471c9"/>
+    </linearGradient>
+    <radialGradient id="srSun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="100" fill="url(#srSky)"/>
+  <g fill="#ffffff" opacity="0.7">
+    <circle cx="40" cy="18" r="0.9"/>
+    <circle cx="90" cy="12" r="0.7"/>
+    <circle cx="140" cy="22" r="1"/>
+    <circle cx="320" cy="14" r="0.8"/>
+    <circle cx="360" cy="24" r="0.9"/>
+  </g>
+  <circle cx="200" cy="60" r="22" fill="url(#srSun)"/>
+  <circle cx="200" cy="60" r="14" fill="#ffffff"/>
+  <g stroke="#ffffff" stroke-width="1" opacity="0.6">
+    <line x1="200" y1="36" x2="200" y2="28"/>
+    <line x1="222" y1="60" x2="232" y2="60"/>
+    <line x1="200" y1="84" x2="200" y2="92"/>
+    <line x1="178" y1="60" x2="168" y2="60"/>
+    <line x1="215" y1="45" x2="222" y2="38"/>
+    <line x1="215" y1="75" x2="222" y2="82"/>
+    <line x1="185" y1="45" x2="178" y2="38"/>
+    <line x1="185" y1="75" x2="178" y2="82"/>
+  </g>
+  <path d="M 0 100 L 0 88 Q 50 82 100 86 T 200 84 T 300 86 T 400 84 L 400 100 Z" fill="#343080" opacity="0.7"/>
+</svg>
